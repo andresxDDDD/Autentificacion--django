@@ -27,6 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = [
+"https://localhost:8000",
+"https://glorious-goggles-754x49g7jvp3prww-8000.app.github.dev",
+]
+
+LOGIN_URL='login'
+LOGIN_REDIRECT_URL = 'home' # allogearse redireccionamos al home
+LOGOUT_REDIRECT_URL = 'login' 
+
 
 # Application definition
 
@@ -37,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +64,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR/'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
